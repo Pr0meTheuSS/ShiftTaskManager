@@ -2,21 +2,18 @@ package nsu.tm.repo.impl;
 
 import nsu.tm.model.Task;
 import nsu.tm.repo.TaskRepository;
-import org.springframework.data.*;
-import org.springframework.data.annotation.QueryAnnotation;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.data.jpa.repository.query.*;
 import java.util.Optional;
 @Repository
 public class TaskRepositoryImpl implements TaskRepository {
+
     @Override
-    @Query(value="SELECT * FROM Tasks", nativeQuery = true)
-    public <S extends Task> S save(S s) {
+    public <S extends Task> S save(S entity) {
+        return null;
     }
 
     @Override
-    public <S extends Task> Iterable<S> saveAll(Iterable<S> iterable) {
+    public <S extends Task> Iterable<S> saveAll(Iterable<S> entities) {
         return null;
     }
 
@@ -32,11 +29,11 @@ public class TaskRepositoryImpl implements TaskRepository {
 
     @Override
     public Iterable<Task> findAll() {
-
+        return null;
     }
 
     @Override
-    public Iterable<Task> findAllById(Iterable<Long> iterable) {
+    public Iterable<Task> findAllById(Iterable<Long> longs) {
         return null;
     }
 
@@ -51,12 +48,17 @@ public class TaskRepositoryImpl implements TaskRepository {
     }
 
     @Override
-    public void delete(Task task) {
+    public void delete(Task entity) {
 
     }
 
     @Override
-    public void deleteAll(Iterable<? extends Task> iterable) {
+    public void deleteAllById(Iterable<? extends Long> longs) {
+
+    }
+
+    @Override
+    public void deleteAll(Iterable<? extends Task> entities) {
 
     }
 
