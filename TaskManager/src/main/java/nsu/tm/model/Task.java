@@ -1,10 +1,25 @@
-package com.example.taskmanager.model;
-import org.hibernate.annotations.Table;
+package nsu.tm.model;
 
+import org.hibernate.annotations.Columns;
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Repository;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDateTime;
 
+@SuppressWarnings("ALL")
+@Entity
+@Table(appliesTo = "Tasks")
 public class Task {
     // Task's Fields
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long Id;
     private String _Title;
     private String _Description;
     private LocalDateTime _CreatingDateTime;
@@ -16,7 +31,7 @@ public class Task {
     public String getTitle() {
         return this._Title;
     }
-    public String getDescription() {
+    public String getDesc() {
         return this._Description;
     }
     public String getTag() {
@@ -36,7 +51,7 @@ public class Task {
     public void setTitle(String newTitle) {
         this._Title = newTitle;
     }
-    public void getDescription(String newDescription) {
+    public void setDesc(String newDescription) {
         this._Description = newDescription;
     }
     public void setTag(String newTag) {
