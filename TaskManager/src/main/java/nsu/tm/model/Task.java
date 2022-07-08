@@ -12,19 +12,26 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDateTime;
 
-@SuppressWarnings("ALL")
-@Entity
-@Table(appliesTo = "Tasks")
+//@SuppressWarnings("ALL")
+//@Entity
+@javax.persistence.Entity
+@javax.persistence.Table(name = "Tasks")
 public class Task {
     // Task's Fields
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long Id;
+    private Integer Id;
+    @Column(name = "Title")
     private String _Title;
+    @Column(name = "Description")
     private String _Description;
+    @Column(name = "CreatingDateTime")
     private LocalDateTime _CreatingDateTime;
+    @Column(name = "DeadLineDateTime")
     private LocalDateTime _DeadLineDateTime;
+    @Column(name = "Tag")
     private String _Tag;
+    @Column(name = "Priority")
     private int _Priority;
 
     // Getters

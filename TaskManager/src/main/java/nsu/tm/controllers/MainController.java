@@ -1,18 +1,20 @@
 package nsu.tm.controllers;
 
 import nsu.tm.model.Task;
-import nsu.tm.repo.*;
+import nsu.tm.repo.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Controller
 public class MainController {
-    private TaskRepository taskRepo;
 
+    private TaskRepository taskRepo;
     @Autowired
     public MainController(TaskRepository taskRepository) {
         this.taskRepo = taskRepository;
@@ -20,7 +22,6 @@ public class MainController {
 
     @GetMapping("/getalltasks")
     public String home() {
-        Iterable<Task> tasks = taskRepo.findAll();
-        return tasks.toString();
+        return this.taskRepo.findAll().toString();
     }
 }
