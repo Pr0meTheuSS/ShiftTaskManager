@@ -6,11 +6,6 @@ import java.time.LocalDateTime;
 @Table(name = "tasks", schema = "public")
 public class Task {
     // Task's Fields
-    @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "Id")
-    private Integer Id;
-
     public Task() {}
 
     public Task(String title, String description, String tag, int priority) {
@@ -20,6 +15,8 @@ public class Task {
         this._Priority = priority;
     }
 
+    @Id
+    private int Id;
 
     @Column(name = "Title")
     private String _Title;
@@ -31,9 +28,7 @@ public class Task {
     private int _Priority;
 
     // Getters
-    public Integer getId() {
-        return Id;
-    }
+    public int getId() { return Id; }
     public String getTitle() {
         return this._Title;
     }
@@ -43,9 +38,7 @@ public class Task {
 
 
     // Setters
-    public void setId(Integer id) {
-        Id = id;
-    }
+    public void setId(int id) { Id = id; }
     public void setTitle(String newTitle) {
         this._Title = newTitle;
     }
@@ -53,12 +46,13 @@ public class Task {
     public void setTag(String newTag) { this._Tag = newTag; }
     public void setPriority(int newPriority) { this._Priority = newPriority; }
     public String toString() {
-        return String.format("[ 'id': %d,\n" +
+        return String.format("[ 'Id': %d,\n" +
+                        "'Title': %s,\n" +
                 " 'Description': '%s',\n" +
                 " Tag: '%s',\n" +
                 " Priority: %d\n " +
                         "]\n",
-                this.Id, this._Description, this._Tag, this._Priority);
+                this.Id, this._Title,  this._Description, this._Tag, this._Priority);
     }
 
 }

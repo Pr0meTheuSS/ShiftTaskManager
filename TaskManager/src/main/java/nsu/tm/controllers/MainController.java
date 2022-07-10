@@ -1,5 +1,7 @@
 package nsu.tm.controllers;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
 import io.swagger.v3.oas.annotations.Parameter;
 import nsu.tm.model.Task;
@@ -12,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @Controller
-//@Api(description = "Single controller")
+@Api(description = "Single controller")
 public class MainController {
 
     private TaskRepository tr;
@@ -21,7 +23,7 @@ public class MainController {
     MainController(TaskRepository tr) {
         this.tr  = tr;
     }
-//    @ApiOperation("Get all tasks from server")
+    @ApiOperation("Get all tasks from server")
     @GetMapping("/getalltasks")
     public ResponseEntity<String> getAllTasks() {
         StringBuilder ret = new StringBuilder("[");
@@ -34,19 +36,13 @@ public class MainController {
     }
 
     @PostMapping(value = "new/task")
-/*
-    @Parameter(name = "Title")
-    @Parameter(name = "Description")
-    @Parameter(name = "Tag")
-    @Parameter(name = "Priority")
-*/
-    public ResponseEntity<Task> addNewTask(
-            @RequestParam String Title,
-            @RequestParam String Description,
-            @RequestParam String Tag,
-            @RequestParam int Priority
+    public ResponseEntity<?> addNewTask(
+            @RequestParam String title,
+            @RequestParam String description,
+            @RequestParam String tag,
+            @RequestParam int priority
     ) {
-        Task task = new Task(Title, Description, Tag, Priority);
+        Task task = new Task(title, description, tag, priority);
         tr.save(task);
         return ResponseEntity.ok(task);
     }
