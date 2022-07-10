@@ -15,15 +15,6 @@
     </parent>
 
     <dependencies>
-<<<<<<< HEAD
-=======
-
-        <dependency>
-            <groupId>org.postgresql</groupId>
-            <artifactId>postgresql</artifactId>
-            <version>42.3.3</version>
-        </dependency>
->>>>>>> ee6c5ebc43cb1b192ed68724c45e0c9966104f7f
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -47,13 +38,6 @@
             <artifactId>spring-web</artifactId>
             <version>5.2.5.RELEASE</version>
         </dependency>
-<!--
-<dependency>
-    <groupId>io.springfox</groupId>
-    <artifactId>springfox-swagger2</artifactId>
-    <version>3.0.0</version>
-</dependency>
--->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-ui</artifactId>
@@ -82,15 +66,14 @@
             <version>3.0.0</version>
         </dependency>
         <dependency>
-<<<<<<< HEAD
             <groupId>io.springfox</groupId>
             <artifactId>springfox-core</artifactId>
             <version>3.0.0</version>
-=======
+        </dependency>
+        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
             <version>5.4.24.Final</version>
->>>>>>> ee6c5ebc43cb1b192ed68724c45e0c9966104f7f
         </dependency>
         <dependency>
             <groupId>io.springfox</groupId>
