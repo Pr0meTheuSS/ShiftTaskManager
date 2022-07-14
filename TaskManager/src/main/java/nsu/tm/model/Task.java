@@ -5,54 +5,42 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "tasks", schema = "public")
 public class Task {
-    // Task's Fields
     public Task() {}
 
-    public Task(String title, String description, String tag, int priority) {
-        this._Title = title;
-        this._Description = description;
-        this._Tag = tag;
-        this._Priority = priority;
-    }
-
+    // Task's Fields
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int Id;
 
-    @Column(name = "Title")
-    private String _Title;
-    @Column(name = "Description")
-    private String _Description;
-    @Column(name = "Tagclass")
-    private String _Tag;
-    @Column(name = "Priority")
-    private int _Priority;
+    @Column(name = "title")
+    private String Title;
+    @Column(name = "description")
+    private String Description;
+    @Column(name = "tag")
+    private String Tag;
+    @Column(name = "priority")
+    private int Priority;
+    @Column(name = "ownerid")
+    private int OwnerId;
 
     // Getters
     public int getId() { return Id; }
     public String getTitle() {
-        return this._Title;
+        return this.Title;
     }
-    public String getDesc() { return this._Description; }
-    public String getTag() { return this._Tag; }
-    public int getPriority() { return this._Priority; }
+    public String getDesc() { return this.Description; }
+    public String getTag() { return this.Tag; }
+    public int getPriority() { return this.Priority; }
+    public int getOwnerId() { return OwnerId; }
 
 
     // Setters
     public void setId(int id) { Id = id; }
+    public void setOwnerId(int ownerId) { OwnerId = ownerId; }
     public void setTitle(String newTitle) {
-        this._Title = newTitle;
+        this.Title = newTitle;
     }
-    public void setDesc(String newDescription) { this._Description = newDescription; }
-    public void setTag(String newTag) { this._Tag = newTag; }
-    public void setPriority(int newPriority) { this._Priority = newPriority; }
-    public String toString() {
-        return String.format("[ 'Id': %d,\n" +
-                        "'Title': %s,\n" +
-                " 'Description': '%s',\n" +
-                " Tag: '%s',\n" +
-                " Priority: %d\n " +
-                        "]\n",
-                this.Id, this._Title,  this._Description, this._Tag, this._Priority);
-    }
-
+    public void setDesc(String newDescription) { this.Description = newDescription; }
+    public void setTag(String newTag) { this.Tag = newTag; }
+    public void setPriority(int newPriority) { this.Priority = newPriority; }
 }

@@ -16,34 +16,4 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @Api(description = "Single controller")
 public class MainController {
-
-    private TaskRepository tr;
-
-    @Autowired
-    MainController(TaskRepository tr) {
-        this.tr  = tr;
-    }
-    @ApiOperation("Get all tasks from server")
-    @GetMapping("/getalltasks")
-    public ResponseEntity<String> getAllTasks() {
-        StringBuilder ret = new StringBuilder("[");
-        for (Task tsk: this.tr.findAll()
-             ) {
-            ret.append(tsk.toString());
-        }
-        ret.append("]");
-        return ResponseEntity.ok("All Tasks:\n" + ret);
-    }
-
-    @PostMapping(value = "new/task")
-    public ResponseEntity<?> addNewTask(
-            @RequestParam String title,
-            @RequestParam String description,
-            @RequestParam String tag,
-            @RequestParam int priority
-    ) {
-        Task task = new Task(title, description, tag, priority);
-        tr.save(task);
-        return ResponseEntity.ok(task);
-    }
 }
